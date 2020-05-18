@@ -5,6 +5,7 @@ import Navigation from './components/navigation/navigation.js';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition.js';
 import Logo from './components/Logo/logo.js';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
+import SignIn from './components/SignIn/SignIn.js';
 import Rank from './components/Rank/Rank.js';
 import Particles from 'react-particles-js';
 
@@ -30,7 +31,8 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
-      box: {}
+      box: {}, 
+      route:'signin' 
     }
   }
 
@@ -74,6 +76,9 @@ class App extends Component {
     );
   }
 
+  onRouteChange = (route) => {
+    this.setState({ route: route});
+  }
 
   displayFace = (box) => {
     this.setState( { box: box });
@@ -84,11 +89,16 @@ class App extends Component {
       <div className="App">
         <Particles className='particles'
           params={particleOptions} />
-        <Navigation />
-        <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} onEnterPress= {this.onEnterPress}/>
-        <FaceRecognition box= {this.state.box} imageUrl={this.state.imageUrl}/>
+        <Navigation onRouteChange={this.onRouteChange}/>
+        {this.state.route === 'signin' 
+          ? <SignIn onRouteChange={this.onRouteChange}/>
+          : <div>
+              <Logo />
+              <Rank />
+              <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} onEnterPress= {this.onEnterPress}/>
+              <FaceRecognition box= {this.state.box} imageUrl={this.state.imageUrl}/>
+            </div>
+        }
       </div>
     );
   }
