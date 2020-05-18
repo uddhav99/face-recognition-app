@@ -8,9 +8,9 @@ const ImageLinkForm = ( { onInputChange, onButtonSubmit, onEnterPress }) => {
                 This has the ability to detect faces. Come, give it a try!
             </p>
             <div className='center'>
-                <div className= 'form center pa4 b3 shadow-5'>
-                    <input className= "f4 pa1 w-70" type='text' onChange={onInputChange} onKeyPress={onEnterPress}/>
-                    <button className= "w-30 grow f4 link ph3 pv2 dib white bg-light-purple" onClick={onButtonSubmit}>
+                <div className= 'form center pa3 b3 shadow-5'>
+                    <input className= "f4 pa1 w-80" type='text' onChange={onInputChange} onKeyPress={onEnterPress}/>
+                    <button className= "w-20 grow f4 link ph3 pv2 dib white bg-dark-blue" onClick={onButtonSubmit}>
                         Detect it!
                     </button>
                 </div>
