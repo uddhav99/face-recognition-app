@@ -32,6 +32,8 @@ class SignIn extends Component {
             if (user.id) {
                 this.props.loadUser(user);
                 this.props.onRouteChange('home');
+            } else {
+                alert('Wrong password or email! Please try again!')
             }
         })
     }
