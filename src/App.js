@@ -60,7 +60,6 @@ class App extends Component {
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(width, height);
     return {
       leftCol: face.left_col * width,
       topRow: face.top_row * height,
