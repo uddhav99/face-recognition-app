@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 const db = knex({
     client: 'pg',
     connection: {
-        connectString: process.env.DATABASE_URL,
+        connectionString: process.env.DATABASE_URL,
         ssl: true
     }
 })
