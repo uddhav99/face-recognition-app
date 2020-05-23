@@ -1,6 +1,4 @@
 const express = require('express');
-const path = require('path');
-const publicPath = path.join(__dirname, '..', 'public');
 
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
@@ -15,18 +13,15 @@ const image = require('./controllers/image');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(publicPath));
 
 const db = knex({
     client: 'pg',
     connection: {
-        connectString: PROCESS.env.DATABASE_URL,
-        ssl: true
+        host: '127.0.0.1',
+        user: 'uddhavbhagat', 
+        password: '', 
+        database: 'smart-brain'
     }
-})
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
 })
 
 app.get('/', (req, res) => { res.send('it is working') })
