@@ -37,13 +37,11 @@ class Register extends Component {
         .then(user => {
             if (user.id) {
                 this.props.loadUser(user);
-                this.props.onRouteChange('home');
+                this.props.onRouteChange('home')
             }
-            // } else {
-            //     alert('One of more of the parameters have not been filled');
-            // }
         })
-        
+        .catch(err => console.log(err));
+
     }
 
     render() {
