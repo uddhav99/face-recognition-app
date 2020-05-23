@@ -36,6 +36,9 @@ class SignIn extends Component {
                 alert('Wrong password or email! Please try again!')
             }
         })
+        .catch(err => {
+            alert('One or more of the parameters are empty');
+        })
     }
 
 
