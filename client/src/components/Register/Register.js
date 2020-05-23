@@ -38,9 +38,10 @@ class Register extends Component {
             if (user.id) {
                 this.props.loadUser(user);
                 this.props.onRouteChange('home');
-            } else {
-                alert('One of more of the parameters have not been filled');
             }
+            // } else {
+            //     alert('One of more of the parameters have not been filled');
+            // }
         })
         
     }
